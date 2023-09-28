@@ -2,5 +2,5 @@
 
 - Gulp
 - Webpack
-- Sass
+- SCSS
 - JS
