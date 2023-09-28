@@ -1,0 +1,212 @@
+//====================================================================================================
+.footer {
+   background-color: $bgColorLite;
+   color: #fff;
+
+   &__container {
+   }
+
+   &__content {
+      @include adaptiveValue("padding-top", 52, 40);
+      @include adaptiveValue("padding-bottom", 74, 40);
+   }
+
+   &__subscribe {
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 54, 30);
+      }
+   }
+
+   &__body {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: rem(30);
+      justify-content: space-between;
+      @media(max-width: $mobile) {
+         grid-template-columns: auto;
+      }
+   }
+   
+
+   &__info {
+      display: grid;
+      @include adaptiveValue("gap", 32, 20);
+      max-width: rem(460);
+   }
+
+   &__logo {
+      &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 32, 20);
+      }
+   }
+
+   &__text {
+   &:not(:last-child) {
+         @include adaptiveValue("margin-bottom", 32, 20);
+      }
+   }
+
+   &__social {
+      display: flex;
+   }
+
+   &__menu {
+   }
+
+   &__copy {
+      border-top: rem(1) solid rgba(255, 255, 255, 0.3);
+      padding-top: rem(32);
+      padding-bottom: rem(32);
+      text-align: center;
+   }
+}
+.subscribe {
+   border-radius: rem(24);
+   background-color: #4ac9ff;
+   padding: rem(24);
+   display: grid;
+   grid-template-columns: auto rem(516);
+   gap: rem(24);
+   align-items: center;
+   @media(max-width: $tablet) {
+      grid-template-columns: auto;
+   }
+   @media(max-width: $mobileSmall) {
+      flex-direction: column;
+      margin: 0 rem(-15);
+      border-radius: 0;
+      padding: rem(15);
+   }
+
+   &__body {
+   }
+
+   &__title {
+      font-size: rem(24);
+      line-height: 1.33;
+      font-weight: 700;
+      &:not(:last-child) {
+         margin-bottom: rem(12);
+      }
+   }
+
+   &__text {
+   }
+
+   &__form {
+      position: relative;
+      padding: rem(12);
+      border-radius: rem(60);
+      background-color: #fff;
+      display: flex;
+      @media(max-width: $mobileSmall) {
+         flex-direction: column;
+         border-radius: rem(10);
+         overflow: hidden;
+         gap: rem(10);
+      }
+      
+   }
+
+   &__input {
+      flex: 1 1 auto;
+      height: rem(51);
+      padding: 0 rem(8);
+      &._form__error::placeholder {
+         color: red;
+      }
+   }
+
+   &__button {
+   }
+}
+.input {
+}
+.text {
+}
+.social {
+   display: flex;
+   flex-wrap: wrap;
+   column-gap: rem(24);
+   row-gap: rem(3);
+   &__item {
+   }
+
+   &__link {
+   }
+}
+.menu-footer {
+
+   &__spollers {
+      display: flex;
+      flex-wrap: wrap;
+      @include adaptiveValue("gap", 130, 20);
+      @media(max-width: $mobileSmall) {
+         flex-direction: column;
+      }
+   }
+
+   &__block {
+   }
+
+   &__title {
+      font-size: rem(24);
+      line-height: 1.33;
+      font-weight: 700;
+      list-style: none;
+      ._spoller-init & {
+         position: relative;
+         padding-right: rem(35);
+         cursor: pointer;
+         &::before,
+         &::after {
+            content: "";
+            position: absolute;
+            right: rem(10);
+            top: 50%;
+            background-color: #fff;
+            height: rem(2);
+            width: rem(8);
+            transition: transform 0.5s ease 0s;
+         }
+         &::before {
+            transform: translate(-75%, -50%) rotate(40deg);
+         }
+         &::after {
+            transform: translate(0, -50%) rotate(-40deg);
+         }
+         &._spoller-active {
+            &::before {
+               transform: translateX(-75%) rotate(-40deg);
+            }
+            &::after {
+               transform: rotate(40deg);
+            }
+         }
+      }
+   }
+
+   &__list {
+      padding-top: rem(24);
+      
+
+   }
+
+   &__item {
+      &:not(:last-child) {
+         margin-bottom: rem(12);
+      }
+   }
+
+   &__link {
+      font-size: rem(20);
+      line-height: 1.6;
+      @media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+   }
+}
+
+//====================================================================================================

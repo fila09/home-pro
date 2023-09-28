@@ -1,0 +1,185 @@
+//====================================================================================================
+.header {
+	background-color: $bgColor;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 50;
+
+	&__container {
+		min-height: rem(80);
+		display: grid;
+		grid-template-columns: rem(200) 1fr rem(200);
+		align-items: center;
+		gap: rem(15);
+		padding-top: rem(10);
+		padding-bottom: rem(10);
+		@media (max-width: $mobile) {
+			grid-template-columns: auto auto;
+			justify-content: space-between;
+			min-height: rem(55);
+		}
+	}
+
+	&__logo {
+		position: relative;
+		z-index: 5;
+	}
+
+	&__menu {
+
+	}
+
+	&__schedule {
+		display: flex;
+		align-items: center;
+		justify-self: end;
+		gap: rem(10);
+		font-weight: 700;
+		line-height: 1.33; /* 24/18 */
+		color: #fff;
+		&::before {
+			content: '';
+			border-radius: 50%;
+			background-color: #FF5E5E;
+			flex: 0 0 rem(12);
+			width: rem(12);
+			height: rem(12);
+		}
+		@media (max-width: $mobile) {
+			justify-content: flex-end;
+		}
+	}
+}
+.menu {
+	justify-self: center;
+
+	&__icon {
+	}
+
+	&__body {
+		@media (max-width: $mobile) {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			padding: rem(100) rem(15) rem(30) rem(15);
+			top: 0;
+			left: 100%;
+			display: flex;
+			flex-direction: column;
+			row-gap: rem(30);
+			overflow: auto;
+			background-color: $bgColorSemi;
+			transition: left 0.5s;
+			&::before {
+				content: "";
+				position: fixed;
+				width: 100%;
+				height: rem(55);
+				top: 0;
+				left: 100%;
+				background-color: $bgColor;
+				z-index: 2;
+				transition: left 0.5s;
+			}
+			.menu-open & {
+				left: 0;
+				&::before{
+					left: 0;
+				}
+			}
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		row-gap: rem(3);
+		@include adaptiveValue("column-gap", 57, 15, 0, $containerWidth, 768);
+		@media (max-width: $mobile) {
+			flex: 1 1 auto;
+			font-size: rem(30);
+			//justify-content: center;
+			align-items: flex-end;
+			flex-direction: column;
+			row-gap: rem(30);
+		}
+	}
+
+	&__item {
+	}
+
+	&__link {
+		font-weight: 700;
+		line-height: 1.33; /* 24/18 */
+		color: #fff;
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		&._navigator-active {
+			text-decoration: underline;
+		}
+	}
+}
+.icon-menu {
+}
+//====================================================================================================
+
+//Burger
+
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: rem(30);
+		height: rem(18);
+		z-index: 5;
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: rem(2);
+			background-color: #fff;
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+			top: calc(50% - rem(1));
+		}
+		.menu-open & {
+			span {
+				width: 0;
+			}
+			/*&::before,
+			&::after {
+
+			}*/
+			&::before {
+				top: calc(50% - rem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - rem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
+
+
+

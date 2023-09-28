@@ -1,0 +1,104 @@
+// Заголовки, загальні БЕМ блоки та інше...
+
+.block-header {
+   display: grid;
+   @include adaptiveValue("gap", 24, 15);
+
+   &--center {
+      text-align: center;
+   }
+
+   &--inline {
+      grid-template-columns: minmax(auto, rem(586)) minmax(auto, rem(613));
+      justify-content: space-between;
+      align-items: end;
+      //gap: rem(24);
+      @media (max-width: $tablet) {
+         grid-template-columns: auto;
+      }
+   }
+
+   &__title {
+      color: $darkColor;
+      @include adaptiveValue("font-size", 52, 24);
+      font-weight: 700;
+      line-height: 1.23;
+
+      &--big {
+         @include adaptiveValue("font-size", 64, 32);
+      }
+      &--white {
+         color: #fff;
+      }
+
+      transform: translate(0, 30%);
+      opacity: 0;
+      transition: 
+         transform 1s,
+         opacity 1s;
+      ._watcher-view & {
+         transform: translate(0, 0);
+         opacity: 1;
+      }
+   }
+
+   &__text {
+      transform: translate(0, 30%);
+      opacity: 0;
+      transition: 
+         transform 1s 0.3s,
+         opacity 1s 0.3s;
+      ._watcher-view & {
+         transform: translate(0, 0);
+         opacity: 1;
+      }
+      p {
+         line-height: 1.55;
+      }
+      a {
+         font-weight: 700;
+         color: $bgColorLite;
+         text-decoration: underline;
+         @media (any-hover: hover) {
+            &:hover{
+               text-decoration: none;
+            }
+         }
+      }
+   }
+}
+
+
+
+
+/*<div class="block-header">
+   <h2 class="block-header__title">
+   </h2>
+   <div class="block-header__text">
+      <p></p>
+   </div>
+</div>*/
+
+
+.done {
+   display: flex;
+   flex-wrap: wrap;
+   column-gap: rem(40);
+   row-gap: rem(3);
+   &__item {
+      padding-left: rem(32);
+      @include adaptiveValue("font-size", 20, 18);
+      line-height: 1.6;
+      color: $bgColorLite;
+      background: url("@img/hero/check-blue.svg") left rem(3) no-repeat;
+   }
+}
+
+.text {
+   line-height: 1.55;
+   p {
+      &:not(:last-child) {
+         margin-bottom: rem(15);
+      }
+   }
+}
